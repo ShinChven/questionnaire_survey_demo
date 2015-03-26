@@ -13,13 +13,13 @@ DROP TABLE qa_relation;
 DROP TABLE answer;
 DROP TABLE question;
 
-CREATE TABLE question -- 创建问题表
+CREATE TABLE question -- 创建问题表 存储问题
 (
   qid INT PRIMARY KEY NOT NULL AUTO_INCREMENT, -- 主键 自增
   qtitle VARCHAR(255) CHARACTER SET GBK NOT NULL -- 问题标题，gbk 中文编码
 );
 
-CREATE TABLE answer -- 答案表
+CREATE TABLE answer -- 答案表 存储每个问题可能有的几个答案 进行1对多的关联  问题是1 答案是多
 (
   aid INT PRIMARY KEY NOT NULL AUTO_INCREMENT, -- 主键
   acontent VARCHAR(255) CHARACTER SET GBK NOT NULL, -- 答案内容
@@ -29,7 +29,7 @@ CREATE TABLE answer -- 答案表
 );
 CREATE INDEX qid_idx ON answer (qid); -- 索引，可以无视，会自动建
 
-CREATE TABLE qa_relation -- 关系表
+CREATE TABLE qa_relation -- 关系表  选区答案以后 答案可以触发新问题的关系表 由I组成。
 (
   qa_r_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,  -- 关系主键
   aid INT NOT NULL,  -- 关系成员 之 回答
