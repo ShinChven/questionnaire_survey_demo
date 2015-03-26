@@ -238,13 +238,13 @@ SELECT * FROM qa_relation WHERE aid=8; -- 选择第3个答案（编号8）获得
 SELECT qid FROM qa_relation WHERE aid=8 AND qid NOT IN (1,3,2,6,9,12);
 -- 肉眼获得 14＼16＼4＼10
 -- 下面是完结式 场上已经有该题所关联的所有题了
-SELECT qid FROM qa_relation WHERE aid=8 AND qid NOT IN (9,14,16,4,10);
+SELECT qid FROM qa_relation WHERE aid=8 AND qid NOT IN (1,3,2,6,9,12,9,14,16,4,10);
 -- 得到0行数据
 
 -- 详解查询条件
 SELECT qid FROM qa_relation -- 从qa_relation 中查询qid 这一个列数据 
 WHERE aid=8 -- 首先它是跟8绑定的
-      AND qid NOT IN (9,14,16,4,10); -- 但这些已经出现在场上
+      AND qid NOT IN (1,3,2,6,9,12,9,14,16,4,10); -- 但这些已经出现在场上
 
 
 
