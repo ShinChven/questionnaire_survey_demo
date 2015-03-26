@@ -29,7 +29,7 @@ CREATE TABLE answer -- 答案表 存储每个问题可能有的几个答案 进�
 );
 CREATE INDEX qid_idx ON answer (qid); -- 索引，可以无视，会自动建
 
-CREATE TABLE qa_relation -- 关系表  选区答案以后 答案可以触发新问题的关系表 由I组成。
+CREATE TABLE qa_relation -- 关系表  取答案以后 答案可以触发新问题的关系表 由AID（答案）对应QID （可触发问题）的1对多关系。
 (
   qa_r_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,  -- 关系主键
   aid INT NOT NULL,  -- 关系成员 之 回答
